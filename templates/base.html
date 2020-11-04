@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    {% block extra_css %}
+    {% endblock %}
+    <title>
+        {% block title %}
+        Teste
+        {% endblock %}
+    </title>
+  </head>
+  <body>
+
+    <div class="container bg-white">
+        {% block content %}{% endblock %}
+    </div> <!-- ./container -->
+
+  </body>

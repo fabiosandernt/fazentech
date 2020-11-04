@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <div>
+      <form class="form-horizontal" method="post" id="main-form">
+            {% csrf_token %}
+          <label for="nome">Nome</label>
+          <input type = "text" name="nome">
+
+          <label for="quantidade">Quantidade</label>
+          <input type = "text" name="quantidade">
+
+          <label for="tipo_equipamento">Tipo de Equipamento</label>
+
+          <select name="tipo_equipamento" id="tipo_equipamento">
+              {% for tipo_equipamento in tipo_equipamentos %}
+  		        <option value="{{ tipo_equipamento.slug }}">{{ tipo_equipamento.nome }}</option>
+              {% endfor %}
+          </select>
+          <button type="submit">salvar</button>
+
+
+      </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <div>
+      <form class="form-horizontal" method="post" id="main-form">
+            {% csrf_token %}
+          <label for="nome">Animal ou Planta</label>
+          <input type = "text" name="nome">
+
+          <label for="data_chegada">Data Chegada</label>
+          <input type = "text" name="data_chegada">
+
+          <label for="data_ultima_producao">Data Última Produção</label>
+          <input type = "text" name="data_ultima_producao">
+
+
+
+          <button type="submit">salvar</button>
+
+
+      </form>
+  </div>
+{% endblock %}

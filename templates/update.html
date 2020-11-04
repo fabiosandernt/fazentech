@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <div>
+      <form class="form-horizontal" method="post" id="main-form">
+            {% csrf_token %}
+          <label for="nome">Nome</label>
+          <input type = "text" name="nome" value="{{ varegista.nome }}">
+
+          <label for="cnpj">CNPJ</label>
+          <input type = "text" name="cnpj"  value="{{ varegista.cnpj }}">
+
+          <label for="endereco">Endereço</label>
+          <input type = "text" name="endereco" value="{{ varegista.endereco }}">
+
+          <label for="tipo_estabelecimento">Tipo de Estebelecimento</label>
+          <select name="tipo_estabelecimento" id="tipo_estabelecimento">
+              {% for tipo_estabelecimento in tipo_estabelecimentos %}
+                {% if tipo_estabelecimento.id == varegista_tipo_estabelecimento.id %}
+                    <option value="{{ tipo_estabelecimento.slug }}" selected>{{ tipo_estabelecimento.nome }}</option>
+                {% else %}
+  		            <option value="{{ tipo_estabelecimento.slug }}">{{ tipo_estabelecimento.nome }}</option>
+                {% endif %}
+              {% endfor %}
+          </select>
+          <button type="submit">salvar</button>
+
+
+      </form>
+  </div>
+{% endblock %}

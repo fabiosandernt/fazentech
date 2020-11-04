@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <div>
+      <form class="form-horizontal" method="post" id="main-form">
+            {% csrf_token %}
+          <label for="inseminacao">Inseminação</label>
+          <select name="inseminacao" id="inseminacao">
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+          </select>
+
+          <label for="ultima_ordenha">Última Ordenha</label>
+          <input type = "text" name="ultima_ordenha">
+
+          <label for="temperatura_armazenamento">Temperatura</label>
+          <input type = "text" name="temperatura_armazenamento">
+
+          <label for="especie_de_vaca">Espécie de Vaca</label>
+          <select name="especie_de_vaca" id="especie_de_vaca">
+              {% for especie_de_vaca in especie_de_vacas %}
+  		        <option value="{{ especie_de_vaca.slug }}">{{ especie_de_vaca.nome }}</option>
+              {% endfor %}
+          </select>
+          <label for="controle_de_animal">Animal</label>
+
+          <select name="controle_de_animal" id="controle_de_animal">
+              {% for controle_de_animal in controle_de_animais %}
+  		        <option value="{{ controle_de_animal.id }}">{{ controle_de_animal.id }} - {{ controle_de_animal.nome }}</option>
+              {% endfor %}
+          </select>
+
+          <button type="submit">salvar</button>
+
+
+      </form>
+  </div>
+{% endblock %}

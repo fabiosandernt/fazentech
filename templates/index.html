@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <div>
+    <ul>
+      <li>
+        <a href="{% url 'plantio' %}"> Controle de Plantio </a>
+      </li>
+      <li>
+        <a href="{% url 'animal' %}"> Controle de Animal </a>
+      </li>
+      <li>
+        <a href="{% url 'equipamento' %}"> Equipamento </a>
+      </li>
+      <li>
+        <a href="{% url 'funcionario' %}"> Funcionário </a>
+      </li>
+      <li>
+        <a href="{% url 'producaodeleite' %}"> Produção de Leite </a>
+      </li>
+      <li>
+        <a href="{% url 'tipodeproducao' %}"> Produção </a>
+      </li>
+      <li>
+        <a href="{% url 'buscabinaria' %}"> Busca Binária </a>
+      </li>
+      <li>
+        <a href="{% url 'varegista' %}"> Varegista </a>
+      </li>
+      <li>
+        <a href="{% url 'lista' %}"> Listagem de Varegistas </a>
+      </li>
+
+    </ul>
+  </div>
+{% endblock %}
